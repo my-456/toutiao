@@ -1,0 +1,26 @@
+
+@import './icon.css';
+
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #e8e8e8;
+}
+.van-nav-bar{
+
+    .van-nav-bar__content{
+        background: #3296fa;
+        .van-nav-bar__title{
+            color: #fff;
+        }
+
+        .van-nav-bar__left{
+            
+            .van-icon{
+                color: #fff;
+
+            }
+        }
+    }
+} 
