@@ -15,3 +15,15 @@ export function getArticles(data){
         params:data
     })
 }
+
+
+/**
+ * 获取文章详情
+ */
+
+ export function getArticleById(articleId){
+    return request({
+        method:'get',
+        url:`/app/v1_1/articles/${articleId}`,
+    })
+}

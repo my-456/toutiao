@@ -35,8 +35,19 @@ const routes=[
                 path:"/search",
                 component:()=>import('../views/search')
             },
+            {
+                path:"/user-profile",
+                component:()=>import('../views/user-profile')
+            },
         ]
-    }
+    },
+    {
+        path:"/detaile/:articleId",
+        name:"Detail",
+        component:()=>import('../views/detaile'),
+        //将动态路由参数映射到组建
+        props:true
+    },
 ]
 
 

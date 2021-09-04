@@ -48,3 +48,40 @@ export function Login(data) {
         url: '/app/v1_0/user/channels'
     })
 }
+
+
+/**
+ * 关注用户
+ * @returns 
+ */
+ export function addFollow(userId) {
+    return request({
+        method: 'post',
+        url: '/app/v1_0/user/followings',
+        data:{
+            target:userId
+        }
+    })
+}
+
+/**
+ * 取消关注用户
+ * @returns 
+ */
+ export function deleteFollow(userId) {
+    return request({
+        method: 'deleteFollow',
+        url: `/app/v1_0/user/followings/${userId}`
+    })
+}
+
+/**
+ * 获取用户个人资料
+ */
+
+ export function getUserProfile() {
+    return request({
+        method: 'GET',
+        url: `/app/v1_0/user/profile`
+    })
+}

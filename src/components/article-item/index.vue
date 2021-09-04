@@ -1,6 +1,6 @@
 <template>
   <div class="article-item">
-      <van-cell class="article-item">
+      <van-cell class="article-item" :to="{name:'Detail',params:{articleId:article.art_id}}">
           <div slot="title">{{article.title}}</div>
           <div slot="label">
               <span>{{article.name}}</span>
