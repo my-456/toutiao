@@ -85,3 +85,29 @@ export function Login(data) {
         url: `/app/v1_0/user/profile`
     })
 }
+
+
+/**
+ * 修改个人资料
+ */
+
+ export function updateUserPhoto(data) {
+    return request({
+        method: 'PATCH',
+        url: `/app/v1_0/user/profile`,
+        data
+    })
+}
+
+
+/**
+ * 修改用户照片资料
+ */
+
+ export function updateUserProfile(data) {
+    return request({
+        method: 'PATCH',
+        url: `/app/v1_0/user/photo`,
+        data
+    })
+}

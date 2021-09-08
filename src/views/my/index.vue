@@ -1,7 +1,7 @@
 <template>
   <div class="my-container">
     <van-cell-group class="my-info" v-if="user">
-      <van-cell center :border="false">
+      <van-cell center :border="false" v-if="userInfo">
         <van-image
           class="avatar"
           slot="icon"
@@ -66,9 +66,9 @@
     />
     <van-cell
       is-link
-      title="单元格"
+      title="小智同学"
       link-type="navigateTo"
-      url="/pages/dashboard/index"
+      to="/user-chat"
       class="mb-4"
     />
     <van-cell v-if="user" title="退出登录" class="logout" @click="onLogout"/>
@@ -90,6 +90,10 @@ export default {
   },
   created(){
     this.getUser() 
+  },
+  mounted(){
+     this.getUser() 
+
   },
   methods:{
 

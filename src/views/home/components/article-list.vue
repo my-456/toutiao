@@ -7,6 +7,7 @@
     :success-duration="1500"
     >
       <van-list
+        ref="article-list"
         v-model="loading"
         :finished="finished"
         finished-text="没有更多了"
@@ -25,6 +26,7 @@
 <script>
 import { getArticles } from '../../../api/article';
 import Article from '../../../components/article-item/index.vue';
+import {debounce} from 'lodash'
 export default {
   name:"ArticleList",
   components:{
@@ -87,9 +89,34 @@ export default {
       finished: false, //控制加载结束的状态，当加载结束，不再处罚加载更多
       refreshing: false,
       timestamp:null,  //获取下一页数据的时间戳
-      refreshSuccessText:""
+      refreshSuccessText:"",
+      scrollTop:0
     };
   },
+  mounted(){
+    const articleList=this.$refs['article-list']
+    articleList.onscroll=debounce(()=>{
+      console.log(articleList.scrollTop)
+      this.scrollTop=articleList.scrollTop
+    },50)
+  },
+
+  /**
+   * 从缓存中被激活
+   */
+  activated(){
+    //把记录的位置设置回去
+    this.$refs['article-list'].scrollTop=this.scrollTop
+  },
+
+  /**
+   * 组件失去活动了
+   */
+
+  deactivated(){
+
+  },
+
 
   methods: {
    async onLoad() {

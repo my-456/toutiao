@@ -53,11 +53,14 @@ export default {
       })
       try {
         const res = await Login(this.user);
-        console.log(res);
+        console.log('LOGIN',res);
         Toast.success("登录成功")
         //将后端返回的数据存入vuex
         this.$store.commit('setUser',res.data.data)
-        this.$router.push('/my')
+
+        //清除layout的缓存，让他重新渲染
+        this.$store.commit('removeCachePage','LayoutIndex')
+        this.$router.push('/')
       } catch (err) {
         console.log(err);
         Toast.fail('登录失败')

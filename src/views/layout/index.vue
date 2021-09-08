@@ -19,6 +19,9 @@ export default {
       active: 0,
     };
   },
+  mounted(){
+    this.$store.commit('addCachePage','LayoutIndex')
+  }
 };
 </script>
 
